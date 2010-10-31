@@ -1,8 +1,14 @@
-== Related 
+=== Related ===
+Contributors: chipsandtv
+Donate link: http://chipsandtv.com/
+Tags: related posts, related, post
+Requires at least: 2.9
+Tested up to: 2.9.1
+Stable tag: trunk
 
 A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
 
-== Description
+== Description ==
 
 A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
 
@@ -30,7 +36,7 @@ To display the related posts, simply add
 to your template, inside the Wordpress loop.
 For advanced options, see the installation docs.
 
-== Installation
+== Installation ==
 
 **Option 1 - Automatic install**
 
@@ -79,34 +85,34 @@ Here is an example:
 		endforeach;
 	?>
 
-== Frequently Asked Questions
+== Frequently Asked Questions ==
 
-= Who should use this plugin?
+= Who should use this plugin? =
 
 People who want to list 'related posts' in their blog posts and want to choose the related posts themselves, instead of 
 having a list generated automatically using algorithms like other plugins do.
 
-= Where does the plugin store its data?
+= Where does the plugin store its data? =
 
 Data is stored in the postmeta table in the Wordpress database. No additional tables are needed.
 
-= How many related posts can I add?
+= How many related posts can I add? =
 
 As many as you like, there's no limit.
 
-= Wordpress version X.X is listed as minimum required version. Any chance it will work with earlier versions?
+= Wordpress version X.X is listed as minimum required version. Any chance it will work with earlier versions? =
 
 There's a good chance it will work with earlier versions, but I haven't tested it.
 
-= I have 500+ posts on my blog and selecting the posts with the one select box isn't very comfortable, lots of scrolling.
+= I have 500+ posts on my blog and selecting the posts with the one select box isn't very comfortable, lots of scrolling. =
 
 That's true, it isn't ideal for large blogs. This might get improved in future releases, feel free to submit ideas.
 
-== Screenshots
+== Screenshots ==
 
 1. Choosing related posts in the edit post screen
 
-== Changelog
+== Changelog ==
 
-= 1.0
+= 1.0 =
 * Initial release. No known issues.
