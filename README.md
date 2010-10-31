@@ -5,8 +5,8 @@ A simple 'related posts' plugin that lets you choose the related posts yourself 
 
 Websites:
 
-*   http://wordpress.org/extend/plugins/related/
-*   http://chipsandtv.com/articles/wordpress-related-posts
+*   [http://wordpress.org/extend/plugins/related/](http://wordpress.org/extend/plugins/related/)
+*   [http://chipsandtv.com/articles/wordpress-related-posts](http://chipsandtv.com/articles/wordpress-related-posts)
 
 Description
 -----------
