@@ -1,23 +1,19 @@
-=== Related ===
-Contributors: chipsandtv
-Donate link: http://chipsandtv.com/
-Tags: related posts, related, post
-Requires at least: 2.9
-Tested up to: 2.9.1
-Stable tag: trunk
+Related
+=======
 
 A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
 
-== Description ==
+Description
+-----------
 
 A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
 
 Features:
 
-* Add related posts to your blog posts
-* Choose the related posts yourself
-* Custom markup possible, or simply use the default output
-* Re-order related posts via drag and drop
+*   Add related posts to your blog posts
+*   Choose the related posts yourself
+*   Custom markup possible, or simply use the default output
+*   Re-order related posts via drag and drop
 
 I wrote the plugin for my own blog, where I wanted to have the option to add related posts to each blog post using a simple 
 but functional plugin without a lot of junk. Unlike other 'related posts' plugins that use algorithms to automatically 
@@ -31,88 +27,93 @@ improvement, just let me know.
 
 To display the related posts, simply add
 
-	<?php echo $related->show(get_the_ID()); ?>
+    <?php echo $related->show(get_the_ID()); ?>
 
 to your template, inside the Wordpress loop.
 For advanced options, see the installation docs.
 
-== Installation ==
+Installation
+------------
 
-**Option 1 - Automatic install**
+### Option 1 - Automatic install
 
 Use the plugin installer built into Wordpress to search for the plugin. Wordpress will then download and install it for you.
 
-**Option 2 - Manual install**
+### Option 2 - Manual install
 
 1. Make sure the files are within a folder.
+
 2. Copy the whole folder inside the wp-content/plugins/ folder.
+
 3. In the backend, active the plugin. You can now select related posts when you create or edit blog posts.
 
-**How to display the related posts on your website**
+How to display the related posts on your website
+------------------------------------------------
 
 The related posts are displayed by adding
 
-	<?php echo $related->show($post_id); ?>
+    <?php echo $related->show($post_id); ?>
 
 to your template. Replace `` $post_id `` with a post ID. If you call it within the Wordpress loop, you can use
 
-	<?php echo $related->show(get_the_ID()); ?>
+    <?php echo $related->show(get_the_ID()); ?>
 
 You have the option of either outputting a pre-formatted list or returning a PHP array of related posts to customise the 
 markup yourself.
 
-**Examples**
+Examples
+--------
 
-*Example 1: Using the default output*
+### Example 1: Using the default output
 
-	<?php echo $related->show(get_the_ID()); ?>
+    <?php echo $related->show(get_the_ID()); ?>
 	
-This can be called within the Wordpress loop. It will output a `` <ul> `` list with links.
+This can be called within the Wordpress loop. It will output a <ul> list with links.
 
-*Example 2: Returning an array*
+### Example 2: Returning an array
 
-	<?php $rel = $related->show(get_the_ID(), true); ?>
+    <?php $rel = $related->show(get_the_ID(), true); ?>
 	
 With the second argument set to true, it will return an array of post objects. Use it to generate your own custom markup. 
 Here is an example:
 
-	<?php
-		$rel = $related->show(get_the_ID(), true);
+    <?php
+        $rel = $related->show(get_the_ID(), true);
 	
-		// Display the title of each related post
-		foreach ($rel as $r) :
-			echo $r->post_title . '<br />';
-		endforeach;
-	?>
+        // Display the title of each related post
+        foreach ($rel as $r) :
+            echo $r->post_title . '<br />';
+        endforeach;
+    ?>
 
-== Frequently Asked Questions ==
+Frequently Asked Questions
+--------------------------
 
-= Who should use this plugin? =
+1. Who should use this plugin?
 
 People who want to list 'related posts' in their blog posts and want to choose the related posts themselves, instead of 
 having a list generated automatically using algorithms like other plugins do.
 
-= Where does the plugin store its data? =
+2. Where does the plugin store its data?
 
 Data is stored in the postmeta table in the Wordpress database. No additional tables are needed.
 
-= How many related posts can I add? =
+3. How many related posts can I add?
 
 As many as you like, there's no limit.
 
-= Wordpress version X.X is listed as minimum required version. Any chance it will work with earlier versions? =
+4. Wordpress version X.X is listed as minimum required version. Any chance it will work with earlier versions?
 
 There's a good chance it will work with earlier versions, but I haven't tested it.
 
-= I have 500+ posts on my blog and selecting the posts with the one select box isn't very comfortable, lots of scrolling. =
+5. I have 500+ posts on my blog and selecting the posts with the one select box isn't very comfortable, lots of scrolling.
 
 That's true, it isn't ideal for large blogs. This might get improved in future releases, feel free to submit ideas.
 
-== Screenshots ==
 
-1. Choosing related posts in the edit post screen
+Changelog
+---------
 
-== Changelog ==
+### 1.0
 
-= 1.0 =
-* Initial release. No known issues.
+*   Initial release. No known issues.
