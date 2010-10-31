@@ -3,6 +3,11 @@ Related
 
 A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
 
+Websites:
+
+*   http://wordpress.org/extend/plugins/related/
+*   http://chipsandtv.com/articles/wordpress-related-posts
+
 Description
 -----------
 
@@ -68,7 +73,7 @@ Examples
 
     <?php echo $related->show(get_the_ID()); ?>
 	
-This can be called within the Wordpress loop. It will output a <ul> list with links.
+This can be called within the Wordpress loop. It will output a `` <ul> `` list with links.
 
 ### Example 2: Returning an array
 
@@ -89,24 +94,23 @@ Here is an example:
 Frequently Asked Questions
 --------------------------
 
-1. Who should use this plugin?
+### 1. Who should use this plugin?
 
-People who want to list 'related posts' in their blog posts and want to choose the related posts themselves, instead of 
-having a list generated automatically using algorithms like other plugins do.
+People who want to list 'related posts' in their blog posts and want to choose the related posts themselves, instead of having a list generated automatically using algorithms like other plugins do.
 
-2. Where does the plugin store its data?
+### 2. Where does the plugin store its data?
 
 Data is stored in the postmeta table in the Wordpress database. No additional tables are needed.
 
-3. How many related posts can I add?
+### 3. How many related posts can I add?
 
 As many as you like, there's no limit.
 
-4. Wordpress version X.X is listed as minimum required version. Any chance it will work with earlier versions?
+### 4. Wordpress version X.X is listed as minimum required version. Any chance it will work with earlier versions?
 
 There's a good chance it will work with earlier versions, but I haven't tested it.
 
-5. I have 500+ posts on my blog and selecting the posts with the one select box isn't very comfortable, lots of scrolling.
+### 5. I have 500+ posts on my blog and selecting the posts with the one select box isn't very comfortable, lots of scrolling.
 
 That's true, it isn't ideal for large blogs. This might get improved in future releases, feel free to submit ideas.
 
