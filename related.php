@@ -81,11 +81,8 @@ if (!class_exists('Related')) :
 			add_meta_box('post-meta-boxes', 'Related posts', array(&$this, 'displayMetaBox'), 'post', 'normal', 'high');
 
                         foreach ( get_post_types( array(_builtin => false) ) as $custom_type ) {
-                          print_r($custom_type);
-                          echo "<br>";
-                          add_meta_box('post-meta-boxes', 'Related posts', array(&$this, 'displayMetaBox'), $custom_type, 'normal', 'high');
+			  add_meta_box('post-meta-boxes', 'Related posts', array(&$this, 'displayMetaBox'), $custom_type, 'normal', 'high');
                         }
-			// add_meta_box('post-meta-boxes', 'Related posts', array(&$this, 'displayMetaBox'), 'case_study', 'normal', 'high');
 
 		}
 
@@ -149,9 +146,12 @@ if (!class_exists('Related')) :
 					<select id="related-posts-select" name="related-posts-select">
 						<option value="0">Select</option>';
 			
+			$post_types = get_post_types( array(_builtin => false) );
+			array_push( $post_types, "post", "link" );
+			
 			$query = array(
 				'posts_per_page' => -1,
-				'what_to_show' => 'posts',
+				'post_type' => $post_types,
 				'nopaging' => true,
 				'post_status' => 'publish'
 			);
