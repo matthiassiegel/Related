@@ -80,6 +80,13 @@ if (!class_exists('Related')) :
 			// Adds a meta box for related posts to the posts screen
 			add_meta_box('post-meta-boxes', 'Related posts', array(&$this, 'displayMetaBox'), 'post', 'normal', 'high');
 
+                        foreach ( get_post_types( array(_builtin => false) ) as $custom_type ) {
+                          print_r($custom_type);
+                          echo "<br>";
+                          add_meta_box('post-meta-boxes', 'Related posts', array(&$this, 'displayMetaBox'), $custom_type, 'normal', 'high');
+                        }
+			// add_meta_box('post-meta-boxes', 'Related posts', array(&$this, 'displayMetaBox'), 'case_study', 'normal', 'high');
+
 		}
 
 
