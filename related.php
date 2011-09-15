@@ -35,11 +35,7 @@ if (!class_exists('Related')) :
 			
 			// Set some helpful constants
 			$this->defineConstants();
-			
-			
-			// Register uninstall hook
-			register_uninstall_hook(dirname(__FILE__) . '/related.php', array(&$this, 'uninstall'));
-
+						
 			// Register hook to save the related posts when saving the post
 			add_action('save_post', array(&$this, 'save'));
 
@@ -59,15 +55,6 @@ if (!class_exists('Related')) :
 		}
 				
 		
-		// Removes all related post entries from the postmeta table
-		protected function uninstall() {
-
-			global $wpdb;
-			
-			$wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key = 'related_posts'"));
-		}
-
-
 		// Main function
 		public function start() {
 			
