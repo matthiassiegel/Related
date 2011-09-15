@@ -130,10 +130,11 @@ if (!class_exists('Related')) :
 						<option value="0">Select</option>';
 			
 			$query = array(
-				'posts_per_page' => -1,
-				'what_to_show' => 'posts',
 				'nopaging' => true,
-				'post_status' => 'publish'
+				'post__not_in' => array($post_ID),
+				'post_status' => 'publish',
+				'posts_per_page' => -1,
+				'what_to_show' => 'posts'
 			);
 			$p = new WP_Query($query);
 			if ($p->have_posts()) :
