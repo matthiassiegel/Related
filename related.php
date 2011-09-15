@@ -87,17 +87,17 @@ if (!class_exists('Related')) :
 
 
 		// Save related posts when saving the post
-		public function save() {
+		public function save($id) {
 			
 			global $wpdb;
 			
-			if (!empty($_POST['related-posts'])) :
-				$id = $_POST['post_ID'];
-				$related = $_POST['related-posts'];
-				
-				// Add or update related posts entry
-				update_post_meta($id, 'related_posts', $related);
-			endif;
+			if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+			if (!isset($_POST['related-posts']) || empty($_POST['related-posts'])) :
+				delete_post_meta($id, 'related_posts');
+			else :
+				update_post_meta($id, 'related_posts', $_POST['related-posts']);
+			endif;			
 		}
 
 
