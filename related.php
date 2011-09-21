@@ -117,7 +117,7 @@ if (!class_exists('Related')) :
 					$p = get_post($r);
 					echo '
 						<div class="related-post" id="related-post-' . $r . '">
-							<input type="hidden" name="related-posts[]" value="' . $r . '" />
+							<input type="hidden" name="related-posts[]" value="' . $r . '">
 							<span class="related-post-title">' . $p->post_title . ' (' . ucfirst(get_post_type($p->ID)) . ')</span>
 							<a href="#">Delete</a>
 						</div>';
