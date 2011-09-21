@@ -3,50 +3,47 @@ Contributors: chipsandtv
 Donate link: http://chipsandtv.com/
 Tags: related posts, related, post
 Requires at least: 2.9
-Tested up to: 2.9.1
+Tested up to: 3.2.1
 Stable tag: trunk
 
 A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
 
 == Description ==
 
-A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
+A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically. Supports any post types in WordPress, including custom ones.
+
 
 Features:
 
-* Add related posts to your blog posts
-* Choose the related posts yourself
-* Custom markup possible, or simply use the default output
+* Add related posts to your blog posts, pages etc.
+* Choose from posts, pages or any other post type
+* Support for custom post types
 * Re-order related posts via drag and drop
+* Custom markup possible, or simply use the default output
 
-I wrote the plugin for my own blog, where I wanted to have the option to add related posts to each blog post using a simple 
-but functional plugin without a lot of junk. Unlike other 'related posts' plugins that use algorithms to automatically 
-generate a list of posts, I wanted to be able to select the related posts myself.
+I wrote the plugin because I wanted to have the option to add related posts to each blog post using a simple but functional plugin without a lot of junk. Unlike other 'related posts' plugins that use algorithms to automatically generate a list of posts, I wanted to be able to select the related posts myself.
 
-The plugin targets at small and medium sized blogs. On blogs with lots of posts (500+) it might not be very comfortable to 
-choose the posts with the select box.
+The plugin targets small and medium sized blogs. On blogs with lots of posts (500+) it might not be very comfortable to choose the posts via select box.
 
-At the moment I don't plan any improvements, but if you find the plugin useful and require a certain feature or 
-improvement, just let me know.
+You can contribute improvements to this plugin by forking it on [GitHub](https://github.com/matthiassiegel/Related).
 
-To display the related posts, simply add
+To display the related posts, simply add the following line in your template, inside the WordPress loop.
 
 	<?php echo $related->show(get_the_ID()); ?>
 
-to your template, inside the Wordpress loop.
 For advanced options, see the installation docs.
 
 == Installation ==
 
 **Option 1 - Automatic install**
 
-Use the plugin installer built into Wordpress to search for the plugin. Wordpress will then download and install it for you.
+Use the plugin installer built into WordPress to search for the plugin. WordPress will then download and install it for you.
 
 **Option 2 - Manual install**
 
 1. Make sure the files are within a folder.
 2. Copy the whole folder inside the wp-content/plugins/ folder.
-3. In the backend, active the plugin. You can now select related posts when you create or edit blog posts.
+3. In the backend, activate the plugin. You can now select related posts when you create or edit blog posts, pages etc.
 
 **How to display the related posts on your website**
 
@@ -54,7 +51,7 @@ The related posts are displayed by adding
 
 	<?php echo $related->show($post_id); ?>
 
-to your template. Replace `` $post_id `` with a post ID. If you call it within the Wordpress loop, you can use
+to your template. Replace `` $post_id `` with a post ID. If you call it within the WordPress loop, you can use
 
 	<?php echo $related->show(get_the_ID()); ?>
 
@@ -67,7 +64,7 @@ markup yourself.
 
 	<?php echo $related->show(get_the_ID()); ?>
 	
-This can be called within the Wordpress loop. It will output a `` <ul> `` list with links.
+This can be called within the WordPress loop. It will output a `` <ul> `` list with links.
 
 *Example 2: Returning an array*
 
@@ -89,24 +86,38 @@ Here is an example:
 
 = Who should use this plugin? =
 
-People who want to list 'related posts' in their blog posts and want to choose the related posts themselves, instead of 
-having a list generated automatically using algorithms like other plugins do.
+People who want to list 'related posts' in their blog posts or pages, and want to choose the related posts themselves, instead of 
+having a list generated automatically like other plugins do, using weird algorithms that often create comical results.
 
 = Where does the plugin store its data? =
 
-Data is stored in the postmeta table in the Wordpress database. No additional tables are needed.
+Data is stored in the existing postmeta table in the WordPress database. No additional tables are created.
 
 = How many related posts can I add? =
 
 As many as you like, there's no limit.
 
-= Wordpress version X.X is listed as minimum required version. Any chance it will work with earlier versions? =
+= WordPress version 2.9 is listed as minimum required version. Any chance it will work with earlier versions? =
 
-There's a good chance it will work with earlier versions, but I haven't tested it.
+There's a chance it will work with earlier versions, but I haven't tested it.
 
 = I have 500+ posts on my blog and selecting the posts with the one select box isn't very comfortable, lots of scrolling. =
 
 That's true, it isn't ideal for large blogs. This might get improved in future releases, feel free to submit ideas.
+
+= In WordPress 2.9, a strange error appears when I try to delete the plugin. =
+
+Yes, I don't know what the problem is. It's only in WordPress 2.9. Just delete the plugin directory manually from wp-content/plugins.
+
+= When I delete the plugin, will it delete the related posts data? =
+
+With version 1.1, all data remains in the database when the plugin files are deleted through the plugins page in WordPress. So if you accidentally delete the plugin, or if you decide to install it again later, your data should still be there.
+
+= Is this plugin actively maintained? =
+
+Not very actively, mostly because my focus is on Ruby development, so my interest in WordPress/PHP is limited. However I get quite a few emails from people who enjoy using the plugin, so if there are any major issues I will look into it.
+
+If you're a developer you are encouraged to submit improvements. Just fork it on [GitHub](https://github.com/matthiassiegel/Related) and submit changes. Every now and then I might find time to incorporate improvements and push out a new release.
 
 == Screenshots ==
 
@@ -114,5 +125,17 @@ That's true, it isn't ideal for large blogs. This might get improved in future r
 
 == Changelog ==
 
+= 1.1 =
+* Bugfix: related posts are now correctly saved (deleted) when all related posts are removed from the current post
+* Feature: all post types in WordPress are now supported (including custom ones)
+* Improvement: select box now sorts posts by title and displays post type
+* Improvement: current post is now excluded from the list of posts
+* Improvement: data now remains stored in database when plugin is deleted, to avoid accidental loss of data
+* Improvement: general code quality improvements
+
 = 1.0 =
 * Initial release. No known issues.
+
+== Upgrade Notice ==
+
+Either let WordPress do the upgrade or just overwrite the files.

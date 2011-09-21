@@ -2,13 +2,13 @@
 /*
 Plugin Name: Related
 Plugin URI: http://chipsandtv.com/
-Description: Simple related posts plugin
-Version: 1.0
+Description: A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
+Version: 1.1
 Author: Matthias Siegel
 Author URI: http://chipsandtv.com/
 
 
-Copyright 2010  Matthias Siegel  (email : chipsandtv@gmail.com)
+Copyright 2010-2011  Matthias Siegel  (email: chipsandtv@gmail.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
