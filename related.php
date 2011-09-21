@@ -47,7 +47,7 @@ if (!class_exists('Related')) :
 		// Defines a few static helper values we might need
 		protected function defineConstants() {
 
-			define('RELATED_VERSION', '1.0');
+			define('RELATED_VERSION', '1.1');
 			define('RELATED_HOME', 'http://chipsandtv.com/');
 			define('RELATED_FILE', plugin_basename(dirname(__FILE__)));
 			define('RELATED_ABSPATH', str_replace('\\', '/', WP_PLUGIN_DIR . '/' . plugin_basename(dirname(__FILE__))));
