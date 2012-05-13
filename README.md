@@ -1,19 +1,19 @@
 Related
 =======
 
-A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
+A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list.
 
 Tested on WordPress 2.9 - 3.2.1
 
 Websites:
 
 *   [http://wordpress.org/extend/plugins/related/](http://wordpress.org/extend/plugins/related/)
-*   [http://chipsandtv.com/articles/wordpress-related-posts](http://chipsandtv.com/articles/wordpress-related-posts)
+*   [https://github.com/matthiassiegel/Related](https://github.com/matthiassiegel/Related)
 
 Description
 -----------
 
-A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically. Supports any post types in WordPress, including custom ones.
+A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list. Supports any post types in WordPress, including custom ones.
 
 Features:
 
@@ -131,7 +131,12 @@ If you're a developer you are encouraged to submit improvements. Just fork it an
 Changelog
 ---------
 
+### 1.11wip
+
+* Minor rewrites that may prevent interference with other plugins
+
 ### 1.1
+
 *   Bugfix: related posts are now correctly saved (deleted) when all related posts are removed from the current post
 *   Feature: all post types in WordPress are now supported (including custom ones)
 *   Improvement: select box now sorts posts by title and displays post type

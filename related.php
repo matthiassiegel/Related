@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Related
-Plugin URI: http://chipsandtv.com/
-Description: A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
+Plugin URI: https://github.com/matthiassiegel/Related
+Description: A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list.
 Version: 1.1
 Author: Matthias Siegel
-Author URI: http://chipsandtv.com/
+Author URI: https://github.com/matthiassiegel/Related
 
 
-Copyright 2010-2011  Matthias Siegel  (email: chipsandtv@gmail.com)
+Copyright 2010-2012  Matthias Siegel  (email: matthias.siegel@gmail.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -48,7 +48,7 @@ if (!class_exists('Related')) :
 		protected function defineConstants() {
 
 			define('RELATED_VERSION', '1.1');
-			define('RELATED_HOME', 'http://chipsandtv.com/');
+			define('RELATED_HOME', 'https://github.com/matthiassiegel/Related');
 			define('RELATED_FILE', plugin_basename(dirname(__FILE__)));
 			define('RELATED_ABSPATH', str_replace('\\', '/', WP_PLUGIN_DIR . '/' . plugin_basename(dirname(__FILE__))));
 			define('RELATED_URLPATH', WP_PLUGIN_URL . '/' . plugin_basename(dirname(__FILE__)));
@@ -105,12 +105,14 @@ if (!class_exists('Related')) :
 		// Creates the output on the post screen
 		public function displayMetaBox() {
 			
-			global $post_ID;
+			global $post;
+			
+			$post_id = $post->ID;
 			
 			echo '<div id="related-posts">';
 			
 			// Get related posts if existing
-			$related = get_post_meta($post_ID, 'related_posts', true);
+			$related = get_post_meta($post_id, 'related_posts', true);
 
 			if (!empty($related)) :
 				foreach($related as $r) :
@@ -132,7 +134,7 @@ if (!class_exists('Related')) :
 			
 			$query = array(
 				'nopaging' => true,
-				'post__not_in' => array($post_ID),
+				'post__not_in' => array($post_id),
 				'post_status' => 'publish',
 				'posts_per_page' => -1,
 				'post_type' => 'any',
@@ -151,6 +153,7 @@ if (!class_exists('Related')) :
 			endif;
 			
 			wp_reset_query();
+			wp_reset_postdata();
 								
 			echo '
 					</select>

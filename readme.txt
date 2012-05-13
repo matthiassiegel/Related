@@ -1,16 +1,16 @@
 === Related ===
 Contributors: chipsandtv
-Donate link: http://chipsandtv.com/
+Donate link: https://github.com/matthiassiegel/Related
 Tags: related posts, related, post
 Requires at least: 2.9
 Tested up to: 3.2.1
 Stable tag: trunk
 
-A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically.
+A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list.
 
 == Description ==
 
-A simple 'related posts' plugin that lets you choose the related posts yourself instead of generating the list automatically. Supports any post types in WordPress, including custom ones.
+A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list. Supports any post types in WordPress, including custom ones.
 
 
 Features:
@@ -124,6 +124,9 @@ If you're a developer you are encouraged to submit improvements. Just fork it on
 1. Choosing related posts in the edit post screen
 
 == Changelog ==
+
+= 1.11wip =
+* Minor rewrites that may prevent interference with other plugins
 
 = 1.1 =
 * Bugfix: related posts are now correctly saved (deleted) when all related posts are removed from the current post
