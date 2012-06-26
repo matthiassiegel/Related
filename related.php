@@ -3,7 +3,7 @@
 Plugin Name: Related
 Plugin URI: https://github.com/matthiassiegel/Related
 Description: A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list.
-Version: 1.1
+Version: 1.1.1
 Author: Matthias Siegel
 Author URI: https://github.com/matthiassiegel/Related
 
@@ -47,7 +47,7 @@ if (!class_exists('Related')) :
 		// Defines a few static helper values we might need
 		protected function defineConstants() {
 
-			define('RELATED_VERSION', '1.1');
+			define('RELATED_VERSION', '1.1.1');
 			define('RELATED_HOME', 'https://github.com/matthiassiegel/Related');
 			define('RELATED_FILE', plugin_basename(dirname(__FILE__)));
 			define('RELATED_ABSPATH', str_replace('\\', '/', WP_PLUGIN_DIR . '/' . plugin_basename(dirname(__FILE__))));

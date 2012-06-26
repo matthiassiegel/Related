@@ -3,7 +3,7 @@ Contributors: chipsandtv
 Donate link: https://github.com/matthiassiegel/Related
 Tags: related posts, related, post
 Requires at least: 2.9
-Tested up to: 3.2.1
+Tested up to: 3.3
 Stable tag: trunk
 
 A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list.
@@ -125,7 +125,7 @@ If you're a developer you are encouraged to submit improvements. Just fork it on
 
 == Changelog ==
 
-= 1.11wip =
+= 1.1.1 =
 * Minor rewrites that may prevent interference with other plugins
 
 = 1.1 =

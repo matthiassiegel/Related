@@ -3,7 +3,7 @@ Related
 
 A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list.
 
-Tested on WordPress 2.9 - 3.2.1
+Tested on WordPress 2.9 - 3.3
 
 Websites:
 
@@ -131,7 +131,7 @@ If you're a developer you are encouraged to submit improvements. Just fork it an
 Changelog
 ---------
 
-### 1.11wip
+### 1.1.1
 
 * Minor rewrites that may prevent interference with other plugins
 
@@ -144,7 +144,7 @@ Changelog
 *   Improvement: data now remains stored in database when plugin is deleted, to avoid accidental loss of data
 *   Improvement: general code quality improvements
 
-### 1.0
+## 1.0
 
 *   Initial release. No known issues.
 
