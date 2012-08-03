@@ -4,7 +4,7 @@ Donate link: https://github.com/matthiassiegel/Related
 Tags: related posts, related, post
 Requires at least: 2.9
 Tested up to: 3.3
-Stable tag: trunk
+Stable tag: 1.1.2
 
 A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list.
 

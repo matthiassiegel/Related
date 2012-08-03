@@ -3,7 +3,7 @@
 Plugin Name: Related
 Plugin URI: https://github.com/matthiassiegel/Related
 Description: A simple 'related posts' plugin that lets you select related posts manually instead of automatically generating the list.
-Version: 1.1.1
+Version: 1.1.2
 Author: Matthias Siegel
 Author URI: https://github.com/matthiassiegel/Related
 
@@ -32,7 +32,6 @@ if (!class_exists('Related')) :
 
 		// Constructor
 		public function __construct() {
-			
 			// Set some helpful constants
 			$this->defineConstants();
 						
@@ -40,7 +39,7 @@ if (!class_exists('Related')) :
 			add_action('save_post', array(&$this, 'save'));
 
 			// Start the plugin
-			add_action('admin_menu', array(&$this, 'start'));
+			add_action('admin_init', array(&$this, 'start'));
 		}
 		
 
@@ -57,33 +56,41 @@ if (!class_exists('Related')) :
 		
 		// Main function
 		public function start() {
-			
 			// Load the scripts
-			add_action('admin_print_scripts', array(&$this, 'loadScripts'));
-			
+			add_action('admin_enqueue_scripts', array(&$this, 'loadScripts'));
+		
 			// Load the CSS
 			add_action('admin_print_styles', array(&$this, 'loadCSS'));
 			
+			add_action('wp_ajax_nopriv_rel_search', array(&$this,'related_search'));
+			add_action('wp_ajax_rel_search', array(&$this,'related_search'));
 			// Adds a meta box for related posts to the edit screen of each post type in WordPress
 			foreach (get_post_types() as $post_type) :
 				add_meta_box($post_type . '-related-posts-box', 'Related posts', array(&$this, 'displayMetaBox'), $post_type, 'normal', 'high');
 			endforeach;
 		}
 
+		//load the ajax autocomplete function
 
 		// Load Javascript
 		public function loadScripts() {
-		
 			wp_enqueue_script('jquery-ui-core');
 			wp_enqueue_script('jquery-ui-sortable');
-			wp_enqueue_script('related-scripts', RELATED_URLPATH .'/scripts.js', false, RELATED_VERSION);
+			wp_enqueue_script('jquery_ui_autocomplete', RELATED_URLPATH.'/js/jquery-ui-1.8.21.custom.min.js',array('jquery'),'1.0');
+			
+			wp_register_script('related-scripts', RELATED_URLPATH .'/js/scripts.js',false,RELATED_VERSION);
+			wp_enqueue_script('related-scripts');
+			
+			wp_localize_script( 'related-scripts', 'RelatedObj', array('url' => admin_url( 'admin-ajax.php' )));
 		}
 
 
 		// Load CSS
 		public function loadCSS() {
-		
-			wp_enqueue_style('related-css', RELATED_URLPATH .'/styles.css', false, RELATED_VERSION, 'all');
+			wp_enqueue_style('related-css', RELATED_URLPATH .'/css/styles.css', false, RELATED_VERSION, 'all');
+			
+			wp_register_style('jquery_autocomplete_css', RELATED_URLPATH.'/css/jquery-ui-1.8.21.custom.css');
+			wp_enqueue_style('jquery_autocomplete_css');
 		}
 
 
@@ -100,6 +107,29 @@ if (!class_exists('Related')) :
 				update_post_meta($id, 'related_posts', $_POST['related-posts']);
 			endif;			
 		}
+		
+		// autocomplete search
+		public function related_search() {
+			$args = array(
+				's' => $_REQUEST['term'],
+				'orderby' => 'post_date',
+   				'order' => 'DESC'
+			);	
+			$posts = get_posts($args);
+			
+			$search_dropdown = array();
+			foreach($posts as $p){
+				setup_postdata($p);
+				$single_post = array();
+				$single_post['label'] = $p->post_title;
+				$single_post['ID'] = $p->ID;
+				
+				$search_dropdown[] = $single_post;
+			}
+			$response = $_GET['callback']."(".json_encode($search_dropdown).")";
+			echo $response;
+			exit;
+		}
 
 
 		// Creates the output on the post screen
@@ -110,6 +140,7 @@ if (!class_exists('Related')) :
 			$post_id = $post->ID;
 			
 			echo '<div id="related-posts">';
+			
 			
 			// Get related posts if existing
 			$related = get_post_meta($post_id, 'related_posts', true);
@@ -157,9 +188,13 @@ if (!class_exists('Related')) :
 								
 			echo '
 					</select>
+					<div id="rel_search_container" style="display: none">
+						<input size="40" type="text" name="related_search" id="rel_search_id" />
+					</div>
 				</p>
 				<p>
 					Select related posts from the list. Drag selected ones to change order.
+					<span style="float: right;"> Text search <input name="rel_text_search" id="rel_text_search" type="checkbox" /></span>
 				</p>';
 		}
 
