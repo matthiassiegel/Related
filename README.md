@@ -123,9 +123,7 @@ With version 1.1, all data remains in the database when the plugin files are del
 
 ### 8. Is this plugin actively maintained?
 
-Not very actively, mostly because my focus is on Ruby development, so my interest in WordPress/PHP is limited. However I get quite a few emails from people who enjoy using the plugin, so if there are any major issues I will look into it.
-
-If you're a developer you are encouraged to submit improvements. Just fork it and submit changes. Every now and then I might find time to incorporate improvements and push out a new release.
+Unfortunately not anymore, because my focus is on Ruby and JS development these days.
 
 
 Changelog
