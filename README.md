@@ -1,3 +1,9 @@
+Please note
+-----------
+
+This plugin has a new owner, the version hosted here is outdated.
+For the latest version please visit [http://wordpress.org/extend/plugins/related/](http://wordpress.org/extend/plugins/related/)
+
 Related
 =======
 
